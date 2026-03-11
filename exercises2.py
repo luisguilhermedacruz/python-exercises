@@ -1,12 +1,13 @@
-wordSent = input("")
+numbers = [10,20,50,766,23,15,8876]
 
-def reverse_string(wordSent: str) -> str:
-    reversedWord = ""
+def lagger_number(list: list[int]) -> int:
+    biggerNumber = list[0]
 
-    for letter in wordSent:
-        reversedWord = letter + reversedWord
-    
-    return reversedWord
+    for b in list:
+        if biggerNumber < b:
+            biggerNumber = b
 
-print(reverse_string(wordSent))
+    return biggerNumber
+
+print(lagger_number(numbers))
 

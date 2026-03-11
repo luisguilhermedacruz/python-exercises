@@ -1,6 +1,6 @@
 wordSent = input("")
 
-def reverse_string(wordSent):
+def reverse_string(wordSent: str) -> str:
     reversedWord = ""
 
     for letter in wordSent:

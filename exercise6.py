@@ -1,5 +1,3 @@
-word = input("")
-
 def count_vowels(word: str) -> int:
     vowels = "aeiou"
     count = 0
@@ -11,4 +9,3 @@ def count_vowels(word: str) -> int:
 
     return count
 
-print(count_vowels(word))

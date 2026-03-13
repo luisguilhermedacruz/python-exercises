@@ -1,5 +1,3 @@
-word = input("")
-
 def reversed_word(word: str) -> str:
     new_word = ""
 
@@ -8,4 +6,3 @@ def reversed_word(word: str) -> str:
 
     return new_word
 
-print(reversed_word(word))

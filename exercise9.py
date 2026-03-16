@@ -5,7 +5,7 @@ person = {
 }
 
 def get_age(person: dict) -> int:
-    return person["age"]
+    return person["age"], person["city"]
 
 
 cars_honda = {

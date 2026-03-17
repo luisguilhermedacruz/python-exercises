@@ -1,19 +1,31 @@
-person = {
-    "name": "Luis",
-    "age": "30",
-    "city": "São Paulo"
+user = {
+    "name":"Luis Guilherme",
+    "age":"31",
+    "city":"São Paulo"
 }
 
-def get_age(person: dict) -> int:
-    return person["age"], person["city"]
+print(user["name"])
+print(user.keys())
+print(user.values())
+user["profissão"] = "Uber driver!"
+user["age"] == 31
+for key, values in user.items():
+    print(key, values)
 
 
-cars_honda = {
-    "modelo":"civic",
-    "age": "2026",
-    "color": "white"
+users = [
+    {"name": "Luis", "age": 31},
+    {"name": "Ana", "age": 25},
+    {"name": "Carlos", "age": 40}
+]
 
-}
+ana = [u for u in users if u["name"] == "Ana"]
+print(ana)
 
-print(get_age(person))
-print(f"My dream's car is {cars_honda["modelo"]} of age {cars_honda["age"]} and color {cars_honda["color"]}")
+for u in users:
+    if u["name"] == "Carlos":
+        print(u["name"],"tem",str(u["age"]) + " de idade") 
+
+for l in users:
+    if l["name"] == "Luis":
+        print(f'{l["name"]} tem {l["age"]} de idade!')

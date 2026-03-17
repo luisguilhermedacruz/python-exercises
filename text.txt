@@ -1,4 +1,1 @@
-1
-2
-3
-4
+O usuário LUIS GUILHERME tem 31 e é maior de idade! Ele mora em SP e foi registrado com sucesso na nossa base de maiores!O usuário LG tem 31 e é maior de idade! Ele mora em SP e foi registrado com sucesso na nossa base de maiores!O usuário LAURA tem 15 e é menor de idade! Ele mora em SP e foi registrado com sucesso na nossa base de menores!

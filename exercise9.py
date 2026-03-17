@@ -1,31 +1,10 @@
-user = {
-    "name":"Luis Guilherme",
-    "age":"31",
-    "city":"São Paulo"
+users = {
+    "name": input("DIGITE SEU NOME: "),
+    "age": int(input("DIGITE SUA IDADE: ")),
+    "city":input("DIGITE SUA CIDADE: ")
 }
 
-print(user["name"])
-print(user.keys())
-print(user.values())
-user["profissão"] = "Uber driver!"
-user["age"] == 31
-for key, values in user.items():
-    print(key, values)
-
-
-users = [
-    {"name": "Luis", "age": 31},
-    {"name": "Ana", "age": 25},
-    {"name": "Carlos", "age": 40}
-]
-
-ana = [u for u in users if u["name"] == "Ana"]
-print(ana)
-
-for u in users:
-    if u["name"] == "Carlos":
-        print(u["name"],"tem",str(u["age"]) + " de idade") 
-
-for l in users:
-    if l["name"] == "Luis":
-        print(f'{l["name"]} tem {l["age"]} de idade!')
+if users["age"] > 18:
+        print(f'O usuário {users["name"]} tem {users["age"]} anos, é maior de idade e mora em {users["city"]}')
+else:
+        print("USUÁRIO MENOR DE IDADE!")

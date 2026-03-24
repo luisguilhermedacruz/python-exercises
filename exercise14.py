@@ -1,5 +1,9 @@
-valor_para_depositar = int(input("Quanto em R$ você quer depósitar? "))
-valor_para_sacar = int(input("Quanto em R$ você quer sacar? "))
+class ValorInvalidoError(Exception):
+    pass
+
+
+class SaldoInsuficienteError(Exception):
+    pass
 
 
 class ContaBancaria:
@@ -7,47 +11,39 @@ class ContaBancaria:
         self.titular = titular
         self.saldo = saldo
 
-    def depositar(self, valor_para_depositar):
-        if valor_para_depositar <= 0:
-            return "O valor que você deseja depósitar é inválido!"
+    def depositar(self, valor):
+        if valor <= 0:
+            raise ValorInvalidoError("O valor para depósito deve ser maior que zero.")
 
-        self.saldo += valor_para_depositar
+        self.saldo += valor
+        return f"Depósito de R${valor} realizado com sucesso. Saldo atual: R${self.saldo}"
 
-        with open("demonstrativo.txt", "a", encoding="utf-8") as demonstrativo:
-            demonstrativo.write(
-                f"Depósito de R${valor_para_depositar} na conta de {self.titular}\n"
-            )
+    def sacar(self, valor):
+        if valor <= 0:
+            raise ValorInvalidoError("O valor para saque deve ser maior que zero.")
 
-        return f"Depósito realizado com sucesso. Saldo atual: R${self.saldo}"
+        if valor > self.saldo:
+            raise SaldoInsuficienteError("Saldo insuficiente para realizar o saque.")
 
-    def sacar(self, valor_para_sacar):
-        if valor_para_sacar > self.saldo or valor_para_sacar <= 0:
-            return "O valor que você deseja sacar não é permitido. Consulte seu gerente."
-
-        self.saldo -= valor_para_sacar
-
-        with open("demonstrativo.txt", "a", encoding="utf-8") as demonstrativo:
-            demonstrativo.write(
-                f"Saque de R${valor_para_sacar} na conta de {self.titular}\n"
-            )
-
-        return f"Saque realizado com sucesso. Saldo atual: R${self.saldo}"
+        self.saldo -= valor
+        return f"Saque de R${valor} realizado com sucesso. Saldo atual: R${self.saldo}"
 
     def mostrar_saldo(self):
-        return f"Seu saldo é: R${self.saldo}"
-
-    def mostrar_demonstrativo(self):
-        with open("demonstrativo.txt", "r", encoding="utf-8") as demonstrativo:
-            return demonstrativo.read()
+        return f"Titular: {self.titular} | Saldo: R${self.saldo}"
 
 
-conta = ContaBancaria("Luis")
+conta = ContaBancaria("Luis", 100)
 
-print(conta.depositar(valor_para_depositar))
-print(conta.sacar(valor_para_sacar))
-print(conta.mostrar_saldo())
-print(conta.mostrar_demonstrativo())
+try:
+    print(conta.depositar(50))
+    print(conta.sacar(30))
+    print(conta.mostrar_saldo())
 
+    print(conta.sacar(500)) 
+except ValorInvalidoError as erro:
+    print(f"Erro de valor: {erro}")
+except SaldoInsuficienteError as erro:
+    print(f"Erro de saldo: {erro}")
 
 
 

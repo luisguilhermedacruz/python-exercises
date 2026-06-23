@@ -22,4 +22,3 @@ result = {
 }
 
 
-print(result)

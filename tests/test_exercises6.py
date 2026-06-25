@@ -1,4 +1,4 @@
-from exercise6 import count_vowels
+from Exercises.exercise6 import count_vowels
 
 def test_count_vowels():
     assert count_vowels("GUILHERME") == 4

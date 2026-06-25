@@ -1,4 +1,4 @@
-from exercise8 import find_small
+from Exercises.exercise8 import find_small
 
 def test_findsmall():
     numbers = [1,2,3,4,5]

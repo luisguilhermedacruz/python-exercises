@@ -1,4 +1,4 @@
-from exercise7 import reversed_word
+from Exercises.exercise7 import reversed_word
 
 def test_reversed_word():
     assert reversed_word("ARARA") == "ARARA"

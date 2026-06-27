@@ -5,3 +5,5 @@ print(price_up50)
 
 price_discount = [d - (d * 0.10) for d in prices]
 print(price_discount)
+
+
